@@ -1,4 +1,3 @@
-import json
 class Product:
     name: str
     description: str
@@ -11,12 +10,9 @@ class Product:
         self.description = description
         self.price = price
         self.available = available
-        self.add_to_unique_products()
+        Product.all_unique_prod.append(self.name)
 
-    def add_to_unique_products(self):
-        '''Добавляет в список всех продуктов новый продукт'''
-        if self.name not in Product.all_unique_prod:
-            Product.all_unique_prod.append(self.name)
+
 
 
 class Category:
@@ -37,6 +33,9 @@ class Category:
         self.description = description
         self.products = products
         Category.total_categories += 1
+        Category.total_unique_products = len(Product.all_unique_prod)
+        Category.update_unique_products()
+
 
 
 

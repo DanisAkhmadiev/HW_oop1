@@ -12,6 +12,8 @@ def test_init(pizza_category):
     assert pizza_category.description == 'pizza products'
     assert pizza_category.products == 'Margarita'
     assert Category.total_categories == 1
+    assert Category.len(Product.all_unique_prod) == 1
+    assert Category.update_unique_products()
 def test_init(pizza_margarita):
     assert pizza_margarita.name == 'Margarita'
     assert pizza_margarita.description == 'classical pizza with tomatos'
